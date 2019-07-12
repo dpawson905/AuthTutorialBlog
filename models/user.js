@@ -33,10 +33,16 @@ const UserSchema = new Schema({
     type: Boolean,
     required: true
   },
-  isAdmin: {
-    type: Boolean,
-    required: true,
-    default: false
+  expiresDateCheck: {
+    type: Date,
+    default: undefined,
+    // if user is not verified then the account will be removed in 24 hours
+    expires: 86400
+  },
+  passwordExp: {
+    // set up password expire feature
+    type: Date,
+    required: true
   }
 }, { timestamps: true });
 
