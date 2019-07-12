@@ -1,3 +1,6 @@
+const User = require('../models/user');
+const Token = require('../models/token');
+
 module.exports = {
   getSignup(req, res, next) {
     res.render('auth/signup');
