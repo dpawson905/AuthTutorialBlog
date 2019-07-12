@@ -13,6 +13,8 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const helmet = require('helmet');
 
+const User = require('./models/user');
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
@@ -56,6 +58,13 @@ if (app.get('env') === 'production') {
 
 app.use(flash());
 app.use(session(sess));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
   res.locals.success = req.flash('success');

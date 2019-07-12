@@ -1,9 +1,9 @@
 module.exports = {
   getSignup(req, res, next) {
-    res.render('signup');
+    res.render('auth/signup');
   },
 
   getLogin(req, res, next) {
-    res.render('login');
+    res.render('auth/login');
   }
 }

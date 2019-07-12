@@ -1,1 +1,13 @@
+#checkPw {
+  padding: 3px;
+}
 
+.form-error {
+  color: red;
+  position: fixed;
+}
+
+.form-success {
+  color: green;
+  position: fixed;
+}
