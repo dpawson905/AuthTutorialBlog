@@ -3,7 +3,15 @@ const Token = require('../models/token');
 
 module.exports = {
   getSignup(req, res, next) {
-    res.render('auth/signup');
+    res.render("auth/signup", {
+      url: "signup",
+      userInfo: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        username: ""
+      }
+    });
   },
 
   async postSignup(req, res, next) {
